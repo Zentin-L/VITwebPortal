@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT Chennai - Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-section" style="visibility:visible;">
+        <div class="login-container">
+            <h2>VIT Chennai Portal</h2>
+            <p>Student & Faculty Login</p>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Username or Email:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+            <p class="hint">Demo: student / vit123 or faculty / vit123</p>
+        </div>
+    </div>
+
+    <div id="portal-section" style="visibility:hidden;">
+        <div class="header">
+            <div class="header-top">
+                <div>
+                    <h1>VIT Chennai</h1>
+                    <p>Student & Faculty Portal | Academic Year 2025-2026</p>
+                </div>
+                <button onclick="handleLogout()" class="btn-logout">Logout</button>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul class="nav-menu">
+                <li><a onclick="show('home', this)" class="nav-link active">Home</a></li>
+                <li><a onclick="show('dept', this)" class="nav-link">Departments</a></li>
+                <li><a onclick="show('time', this)" class="nav-link">Time Table</a></li>
+                <li><a onclick="show('notice', this)" class="nav-link">Notices</a></li>
+                <li><a onclick="show('canvas', this)" class="nav-link">Canvas Tools</a></li>
+                <li><a onclick="show('contact', this)" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="home" class="page active">
+                <h2>Welcome to VIT Chennai</h2>
+                <div class="three-column">
+                    <div class="box">
+                        <h3>Student Announcements</h3>
+                        <ul>
+                            <li>NPTEL Registration link not provided</li>
+                            <li>Library not accessible during pongal</li>
+                            <li>Kabbadi Tournament is happening</li>
+                            <li>Scholarship Applications for summer</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>Latest Events</h3>
+                        <ul>
+                            <li>Vibrance 2026 - Jan 20</li>
+                            <li>Pongal - Jan 15</li>
+                            <li>Hackathon - Feb 5</li>
+                            <li>EXAMS - Feb 10</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>Exam Notifications</h3>
+                        <ul>
+                            <li>Mid Sem Schedule Released</li>
+                            <li>Seat allotment Open</li>
+                            <li>Check Vtop for schedules</li>
+                            <li>Summer Sem: Feb 15 - Mar 10</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dept" class="page">
+                <h2>Departments</h2>
+                <div class="grid-2">
+                    <div class="box">
+                        <h3>School of Engineering</h3>
+                        <p>Computer Science, Electronics, Mechanical & Civil Engineering.</p>
+                    </div>
+                    <div class="box">
+                        <h3>School of Management</h3>
+                        <p>Management with Finance, HR & Marketing specializations.</p>
+                    </div>
+                    <div class="box">
+                        <h3>School of Science</h3>
+                        <p>Physics, Chemistry, Mathematics & Biology programs.</p>
+                    </div>
+                    <div class="box">
+                        <h3>School of Design</h3>
+                        <p>Product, Graphics, UX/UI & Innovation design thinking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="time" class="page">
+                <h2>Class Time Table</h2>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                    <tr>
+                        <td>08:00-09:00</td>
+                        <td>Web Programming</td>
+                        <td>Algorithm Design</td>
+                        <td>Computer Networks</td>
+                        <td>Smart Cities</td>
+                        <td>Web Programming Lab</td>
+                    </tr>
+                    <tr>
+                        <td>09:00-10:00</td>
+                        <td>Theory of Computation</td>
+                        <td>Probability & Statistics</td>
+                        <td>Algorithm Lab</td>
+                        <td>Computer Networks Lab</td>
+                        <td>Quantitative Skills</td>
+                    </tr>
+                    <tr>
+                        <td>10:00-11:00</td>
+                        <td>Algorithm Design</td>
+                        <td>Web Programming</td>
+                        <td>Smart Cities</td>
+                        <td>Theory of Computation</td>
+                        <td>Computer Networks</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align:center;background:#e8f0f7;">Break (11:00-11:15)</td>
+                    </tr>
+                    <tr>
+                        <td>11:15-12:15</td>
+                        <td>Computer Networks</td>
+                        <td>Smart Cities</td>
+                        <td>Probability & Statistics</td>
+                        <td>Web Programming</td>
+                        <td>Algorithm Design</td>
+                    </tr>
+                    <tr>
+                        <td>12:15-01:15</td>
+                        <td colspan="6" style="text-align:center;background:#e8f0f7;">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>01:15-02:15</td>
+                        <td>Quantitative Skills</td>
+                        <td>Theory of Computation</td>
+                        <td>Web Programming</td>
+                        <td>Algorithm Design</td>
+                        <td>Probability & Statistics</td>
+                    </tr>
+                    <tr>
+                        <td>02:15-03:15</td>
+                        <td>Probability Lab</td>
+                        <td colspan="6" style="text-align:center;background:#e8f0f7;">Break (2:15-3:15)</td>
+                    </tr>
+                    <tr>
+                        <td>03:15-04:15</td>
+                        <td>Traditional Knowledge</td>
+                        <td>Computer Networks</td>
+                        <td>Theory of Computation</td>
+                        <td>Probability & Statistics</td>
+                        <td>Smart Cities</td>
+                    </tr>
+                    <tr>
+                        <td>04:15-05:15</td>
+                        <td>Web Programming</td>
+                        <td>Algorithm Design</td>
+                        <td colspan="6" style="text-align:center;background:#e8f0f7;">Break (4:15-5:15)</td>
+                    </tr>
+                    <tr>
+                        <td>05:15-05:30</td>
+                        <td colspan="5" style="text-align:center;">Wrap Up & Assignments</td>
+                    </tr>
+                </table>
+                <p style="margin-top:15px;font-size:13px;color:#666;">
+                    <strong>Note:</strong>Lessgo no classes on Saturday & Sunday.
+                </p>
+            </div>
+
+            <div id="notice" class="page">
+                <h2>Notices & Updates</h2>
+                <div class="notice">
+                    <div class="notice-date">2026-01-13</div>
+                    <div class="notice-title">NPTEL Registration Extended</div>
+                    <p>Registration deadline extended to January 20, 2026.</p>
+                </div>
+                <div class="notice">
+                    <div class="notice-date">2026-01-10</div>
+                    <div class="notice-title">Campus Maintenance</div>
+                    <p>Library closed on January 15-16 for maintenance.</p>
+                </div>
+                <div class="notice">
+                    <div class="notice-date">2026-01-08</div>
+                    <div class="notice-title">CAT Exam Allotment</div>
+                    <p>Check exam class and seat allocation on VtopSS.</p>
+                </div>
+
+                <h3 style="color:#1a4d7a;margin-top:30px;">VIT Chennai Campus</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15560.16188769888!2d80.13497417517597!3d12.84066127769467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5259af8e491f67%3A0x944b42131b757d2d!2sVellore%20Institute%20of%20Technology%20-%20Chennai!5e0!3m2!1sen!2sin!4v1768327095014!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+            <div id="contact" class="page">
+                <h2>Contact Information</h2>
+                <div class="box" style="max-width:600px;">
+                    <div class="contact-item">
+                        <strong>Main Campus</strong><br>
+                        VIT Chennai, Vandalur, Chennai - 600127
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone</strong><br>
+                        +91-44-39******
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong><br>
+                        admissions@vitcc.ac.in
+                    </div>
+                    <div class="contact-item">
+                        <strong>Website</strong><br>
+                        <a href="https://vtopcc.vit.ac.in/" style="color:#1a4d7a;text-decoration:none;">VtopCC</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="canvas" class="page">
+                <h2>Exam & Attendance Canvas Tools</h2>
+                <div class="box">
+                    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+                        Simple student-made canvas widgets: Exam Countdown Ring and Attendance Gauge.
+                    </p>
+                    <iframe src="canvas-tools.html" title="Canvas Tools" style="height:650px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer">
+            <p>If there is Will, there is a Way.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

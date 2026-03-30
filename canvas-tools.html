@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Tools</title>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+            background: #f7f9fc;
+            color: #444;
+            padding: 14px;
+        }
+
+        .wrap {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e6e9ef;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .card h3 {
+            color: #1a4d7a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .controls label {
+            font-size: 13px;
+            color: #555;
+        }
+
+        input[type="date"],
+        input[type="number"],
+        input[type="range"] {
+            padding: 6px;
+            border: 1px solid #d9dfe8;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .controls button {
+            padding: 7px 12px;
+            border: none;
+            background: #4a7ba7;
+            color: white;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background: #3d6d98;
+        }
+
+        canvas {
+            width: 100%;
+            max-width: 320px;
+            display: block;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .value {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #1a4d7a;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <h3>Exam Countdown Ring</h3>
+            <p class="hint">Set exam date and track how many days are left.</p>
+            <div class="controls">
+                <label for="examDate">Exam Date:</label>
+                <input type="date" id="examDate">
+                <button onclick="drawCountdown(true)">Update</button>
+            </div>
+            <canvas id="countdownCanvas" width="320" height="320"></canvas>
+            <div id="countdownText" class="value">-</div>
+            <p id="firebaseStatus" class="hint" style="margin-top:8px;">Checking Firebase...</p>
+        </div>
+
+        <div class="card">
+            <h3>Attendance Gauge</h3>
+            <p class="hint">Enter attendance percentage and check status quickly.</p>
+            <div class="controls">
+                <label for="attendanceInput">Attendance %:</label>
+                <input type="range" id="attendanceInput" min="0" max="100" value="78" oninput="updateGaugeFromSlider()">
+                <input type="number" id="attendanceNumber" min="0" max="100" value="78">
+                <button onclick="drawGauge(true)">Check</button>
+            </div>
+            <canvas id="gaugeCanvas" width="320" height="220"></canvas>
+            <div id="gaugeText" class="value">-</div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

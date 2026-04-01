@@ -194,14 +194,14 @@ function initCanvasTools() {
         }
 
         var firebaseConfig = {
-            apiKey: 'AIzaSyAuWjzVvKyfV2dj4f-LyzI_Dj4uI-T_TkI',
-            authDomain: 'webvit-7788c.firebaseapp.com',
-            databaseURL: 'https://webvit-7788c-default-rtdb.firebaseio.com',
-            projectId: 'webvit-7788c',
-            storageBucket: 'webvit-7788c.firebasestorage.app',
-            messagingSenderId: '454506339570',
-            appId: '1:454506339570:web:7e5fbfbf51264bfc57046b',
-            measurementId: 'G-CJGTY98Z8G'
+            apiKey: '',
+            authDomain: '',
+            databaseURL: '',
+            projectId: '',
+            storageBucket: '',
+            messagingSenderId: '',
+            appId: '',
+            measurementId: ''
         };
 
         if (firebaseConfig.apiKey === 'YOUR_API_KEY') {
